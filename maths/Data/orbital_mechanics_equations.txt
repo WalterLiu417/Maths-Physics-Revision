@@ -1,0 +1,423 @@
+0
+Introduction
+Orbital mechanics equations from "Orbital Mechanics for Engineering Students" by Prof. Howard D.Curtis
+0.1
+Syntax
+See 0.1.1, 0.1.2 onwards
+0.1.1
+Subscript
+A_b = A subscript b
+0.1.2
+Definite integral
+integral(a, b)(f(x)dx) = definite integral of f(x) with lower bound a and upper bound b
+0.1.3
+Indefinite integral
+integral()(f(x)dx) = indefinite integral (antiderivative) of f(x)
+0.1.4
+Derivative (prime notation)
+f'(x) = derivative of function f
+0.1.5
+Derivative (Leibniz)
+d(some quantity)/d(a variable) = derivative of the quantity with respect to the variable
+0.1.6
+Higher order derivatives (Leibniz + my notation)
+(d(stuff)/d(var))^n = nth derivative of stuff with respect to var --> See 0.1.6.1
+0.1.6.1
+Powers of derivatives
+[(d(stuff)/d(var))^k]^n = kth derivative of stuff with respect to var to the power n
+0.1.7
+Delta (change in) notation
+delta(stuff) = change in that stuff
+0.1.8
+Unit vector
+<n> = unit vector n
+0.1.9
+Magnitude
+|v| = Magnitude of vector v
+0.1.10
+Exponentation
+a^b = a to the power b
+0.1.11
+Matrix
+Matrix((1,2,3), (4,5,6), (7,8,9)) = 3-dimensional matrix --> A one-dimensional matrix is a vector
+0.2
+Assumed meanings of variables
+See 0.2.1, 0.2.2 onwards
+0.2.1
+Acceleration
+acceleration = a (vector)
+0.2.2
+Velocity
+velocity = v (vector)
+0.2.3
+Time
+time = t (scalar)
+0.2.4
+Unit vectors
+unit vectors along axes = <i>, <j>, <k> (vectors)
+0.2.5
+Angular velocity
+angular velocity = w (vector)
+0.2.6
+Angular acceleration
+angular acceleration = α (vector)
+0.2.7
+Force
+force = F (vector)
+0.2.8
+Mass
+mass = m (scalar)
+0.2.9
+Vectors
+All other variables will be assumed to be vectors unless stated otherwise
+0.3
+Constants
+See 0.3.1, 0.3.2 onwards
+0.3.1
+Gravtitational constant
+G = 6.67 * 10^-11 (N m^2 kg^-2)
+0.3.2
+Speed of light in vacuum
+c = 299792498 (m s^-1)
+0.3.3
+Radius of Earth
+R_E = 6378000 (m)
+0.3.4
+Mass of Earth
+M_E = 5.974 * 10^24
+0.4
+Some symbols for convenient use
+Λθφα
+1.1
+Unit vector equation
+<A> = (Vector A)/|A|
+1.2
+Vector addition property
+Vector addition is commutative -> A+B = B+A
+1.3
+Resolve vector into components
+A = (A_x)<i> + (A_y)<j> + (A_z)<k>
+1.4
+Magnitude of vector
+A = sqrt((A_x)^2 + (A_y)^2 + (A_z)^2)
+1.5
+Unit vector equation 2
+<A> = cos(θ_x)<i> + cos(θ_y)<j> + cos(θ_z)<k> --> See 1.6
+1.6
+Vector angle to axis
+cos(θ_n) = (A_n)/|A|
+1.7
+Dot product from magnitude and angle
+A*B = |A||B|cos(θ)
+1.8
+Dot product property
+A*B = B*A
+1.9
+Unit vector and dot product relation
+<i>*<i> = <j>*<j> = <k>*<k> = 1 and <i>*<j> = <i>*<k> = <j>*<k> = 0
+1.10
+Vector dot product from components
+A*B = (A_x)(B_x) + (A_y)(B_y) + (A_z)(B_z)
+1.11
+Magnitude and dot product relationship
+|A| = sqrt(A*A)
+1.12
+Vector projection
+Projection of B onto the line of action of A: B_A = B*A/|A|
+1.13
+Cross product from magnitude, angle and normal unit vector
+A X B = (|A||B|sin(θ))<n_AB> --> <n_AB> is the unit vector normal to the plane defined by the two vectors
+1.14
+Cross product property
+B X A = -(A X B)
+1.15
+Vector components to cross product
+A X B = ((A_x)<i> + (A_y)<j> + (A_z)<k>) X ((B_x)<i> + (B_y)<j> + (B_z)<k>)
+1.16
+Unit vector and cross product relation
+<i> X <i> = <j> X <j> = <k> X <k> = zero vector and <i> X <j> = <k>, <j> X <k> = <i>, <k> X <i> = <j>
+1.17
+Vector cross product from components
+A X B = ((A_y)(B_z) - (A_z)(B_y))<i> - ((A_x)(B_z) - (A_z)(B_x))<j> + ((A_x)(B_y) - (A_y)(B_x))<k>
+1.18
+Vector cross product from matrix determinant
+A X B = det((<i>, <j>, <k>), (A_x, A_y, A_z), (B_x, B_y, B_z))
+1.19
+Normal unit vector from cross product
+<n_AB> = (A X B)/|A X B|
+1.20
+Cross product to dot product (Vector triple product / bac-cab rule)
+A X (B X C) = B(A*C) - C(A*B)
+1.21
+Interchange of the vector dot product and cross product
+A*(B X C) = (A X B)*C
+1.22
+Velocity and speed relationship
+v = |v|<u_t> --> <u_t> is the unit vector tangent to the trajectory
+1.23
+Unit tangent from velocity
+<u_t> = v/|v|
+1.24
+Acceleration for nonlinear motion (general case)
+a = |a_t|<u_t> + |a_n|<u_n> --> Subscript t -> tangential, n -> normal --> See 1.25 and 1.26
+1.25
+Acceleration components derivation
+a_t = (d|v|/dt) and a_n =(|v|^2)/p --> p is radius of curvature --> See 1.26
+1.26
+Curvature equation
+r_(C/P) = p(<u_n>) --> r_(C/P) is position of C relative to P, C is center of curvature
+1.27
+Binormal from unit tangent and unit normal
+Binormal <u_b> = <u_t> X <u_n>
+1.28
+Binormal from velocity and acceleration
+<u_b> = (v X a)/|(v X a)|
+1.29
+Binormal, unit tangent and unit normal relation
+<u_n> = <u_b> X <u_t>, <u_b> = <u_t> X <u_n>, <u_t> = <u_n> X <u_b>
+1.30
+Angular displacement and velocity relation
+d(φ)/dt = |v|/p --> φ is the angle between original position vector and new position vector in time dt
+1.31
+Newton's law of universal gravitation
+F = G(m_1)(m_2)/(r^2)
+1.32
+Weight equation
+W = mg --> g is gravitational field strength --> See 1.33
+1.33
+Gravitational field strength equation
+Gravitational field strength g caused by a mass M = GM/(r^2)
+1.34
+Gravitational field strength at sea level equation
+g_0 = G(M_E)/(R_E)^2 --> See 1.35
+1.35
+Gravitational field strength at sea level
+g_0 = 9.807 m s^-2
+1.36
+Gravitational field strength from distance above sea level
+g = (g_0)/(1+(z/R_E)^2)
+1.37
+Projectile flight path angle and radius of curvature to velocity equation
+p(d(θ)/dt) = -v --> θ is flight path angle
+1.38
+Newton's second law of motion
+F = ma
+1.39
+Impulse from force
+I = integral(t_1, t_2)(F dt)
+1.40
+Impulse from momentum
+I = integral(t_1, t_2)(m(dv/dt)(dt)) = m(v_2) - m(v_1)
+1.41
+Net impulse to momentum change
+delta(v) = I/m
+1.42
+Velocity from constant force, mass and time (impulse)
+delta(v) = (F_net)delta(t)/m
+1.43
+Moment equation
+M_Onet = r X ma --> M_Onet is net moment about O, r is distance from O
+1.44
+Moment from angular momentum
+M_Onet = d(H_O)/dt --> H_O is angular momentum about O --> See 1.45
+1.45
+Angular momentum equation
+H_O = r X mv
+1.46
+Angular impulse and angular momentum relation
+integral(t_1, t_2)(M_Onet dt) = H_O2 - H_O1
+1.47
+Displacement of moving vector equation
+dA = |dA|<n> = |A|sin(φ)d(θ)<n> --> φ is the angle from original vector to instantaneous axis of rotation, θ is the angle from the line normal of the instantaneous axis to the new line normal of the new axis, <n> is the unit normal to the plane defined by A and the axis of rotation --> See 1.48
+1.48
+Angular velocity definition
+d(θ) = |w|dt
+1.49
+Angular acceleration definition
+α = dw/dt
+1.50
+Displacement of moving vector equation 2
+dA = |w||A|sin(φ)<n>dt --> φ is the angle from original vector to instantaneous axis of rotation, <n> is the unit normal to the plane defined by A and the axis of rotation
+1.51
+Angular velocity and moving vector relation
+w X A = |w||A|sin(φ)<n> --> φ is the angle from original vector to instantaneous axis of rotation, <n> is the unit normal to the plane defined by A and the axis of rotation
+1.52
+Velocity of moving vector from angular velocity and constant magnitude (angular velocity definition)
+dA/dt = w X A
+1.53
+Acceleration of moving vector from angular acceleration and angular velocity
+(dA/dt)^2 = α X A + w X (w X A)
+1.54
+Resolve moving vector in moving frame into components
+B = (B_x)<i> + (B_y)<j> + (B_z)<k> --> Note that the unit vectors are not fixed --> See 1.55
+1.55
+Velocity of moving vector in moving frame
+dB/dt = (d(B_x)/dt)<i> + (d(B_y)/dt)<j> + (d(B_z)/dt)<k> + (B_x)(d<i>/dt) + (B_y)(d<j>/dt) + (B_z)(d<k>/dt) --> See 1.55.1
+1.55.1
+Velocity of moving unit vector in moving frame
+d<i>/dt = w X <i>, d<j>/dt = w X <j>, d<k>/dt = w X <k> --> w is angular velocity of moving frame
+1.56
+Relation of absolute velocity (rigid frame) and relative velocity (moving frame)
+dB/dt = (dB/dt)_rel + w X B --> See 1.57
+1.57
+Relative velocity of time-dependent vector in moving frame from components
+(dB/dt)_rel = (d(B_x)/dt)<i> + (d(B_y)/dt)<j> + (d(B_z)/dt)<k>
+1.58
+Relative acceleration of time-dependent vector in moving frame 1
+(dB/dt)^2 = (d/dt)((dB/dt)_rel) + (dw/dt) X B + w X ((dB/dt)_rel + w X B)
+1.59
+Relative acceleration of time-dependent vector in moving frame 2
+(d/dt)(dB/dt)_rel = ((dB/dt)_rel)^2 + w X (dB/dt)_rel
+1.60
+Relative acceleration of time-dependent vector in moving frame 3
+(dB/dt)^2 = ((dB/dt)_rel)^2 + α X B + w X (w X B) + 2w X (dB/dt)_rel --> α is the absolute angular acceleration of the moving frame
+1.61
+Relative position to absolute position in moving frame
+r = r_O + r_rel --> r is absolute position of particle, r_O is position of origin of moving frame, r_rel is relative position of particle to moving frame --> See 1.62
+1.62
+Relative position components
+r_rel = x<i> + y<j> + z<k> --> x,y,z are coordinates of particle relative to moving frame, <i>, <j>, <k> are unit vectors of moving frame
+1.63
+Relative velocity to absolute velocity in moving frame
+v = v_O + d(r_rel)/dt --> v is absolute velocity of particle, v_O is absolute velocity of origin of moving frame
+1.64
+Relative position change from relative velocity and relative position in moving frame
+d(r_rel)/dt = v_rel + w X r_rel --> w is angular velocity of moving frame --> See 1.65
+1.65
+Relative velocity in moving frame components
+v_rel = (dx/dt)<i> + (dy/dt)<j> + (dz/dt)<k> --> x,y,z are coordinates of particle relative to moving frame
+1.66
+Relative velocity formula (moving frame)
+v = v_O + w X r_rel + v_rel
+1.67
+Relative acceleration to absolute acceleration in moving frame
+a = a_O + (d(r_rel)/dt)^2 --> a_O = d(v_O)/dt
+1.68
+Relative acceleration of relative position formula (moving frame) 1
+(d(r_rel)/dt)^2 = ((d(r_rel)/dt)^2 + α X r_rel + w X (w X r_rel) + 2w X (d(r_rel)/dt)_rel
+1.69
+Relative acceleration of relative position formula (moving frame) 2
+(d(r_rel)/dt)^2 = a_rel + α X r_rel + w X (w X r_rel) + 2w X v_rel
+1.70
+Relative acceleration formula (moving frame)
+a = a_O + α X r_rel + w X (w X r_rel) + 2w x v_rel + a_rel --> 2w X v_rel is the Coriolis acceleration
+1.71
+Relative position vector for particle above surface of earth
+r_rel = (R_E + z)<k> --> z is altitude of particle (above sea level), <k> is unit vector in direction radially outward from center of Earth
+1.72
+Relative velocity to the nonrotating Earth
+v_rel = d(r_rel)/dt = (dz/dt)<k> + (R_E + z)(d<k>/dt) --> See 1.52, 1.73, 1.74
+1.73
+Angular velocity from latitude, longitude and tangential unit vectors
+w = -(d(φ)/dt)<i> + (d(Λ)/dt)cos(φ)<j> + (d(Λ)/dt)sin(φ)<k> --> Λ is longitude, φ is latitude
+1.74
+Rate of change of radial unit vector from latitude, longtitude and tangential unit vectors
+d<k>/dt = (d(Λ)/dt)cos(φ)<i> + (d(φ)/dt)<j> --> Λ is longitude, φ is latitude
+1.75
+Rate of change of eastward unit vector from latitude, longtitude and remaining unit vectors
+d<j>/dt = -(d(Λ)/dt)sin(φ)<i> - (d(φ)/dt)<k>
+1.76
+Rate of change of northward unit vector from latitude, longtitude and remaining unit vectors
+d<i>/dt = (d(Λ)/dt)sin(φ)<j> - (d(Λ)/dt)cos(φ)<k>
+1.77
+Relative velocity to nonrotating Earth from components of relative velocity change over Earth's surface
+v_rel = (dx/dt)<i> + (dy/dt)<j> + (dz/dt)<k> --> See 1.77.1
+1.77.1
+Components of relative velocity change over Earth's surface from latitude and longitude
+dx/dt = (R_E + z)(d(Λ)/dt)cos(φ), dy/dt = (R_E + z)(d(φ)/dt) --> See 1.78
+1.78
+Rates of change of latitude and longitude in terms of components of relative velocity over Earth’s surface
+d(φ)/dt = (dy/dt)/(R_E + z), d(Λ)/dt = (dx/dt)/((R_E + z)cos(φ))
+1.79
+Second derivative of latitude and longitude in terms of components of relative velocity over Earth’s surface
+(d(φ)/dt)^2 = ((R_E + z)((dy/dt)^2) - (dy/dt)(dz/dt))/(R_E + z)^2, (dΛ)/dt)^2 = ((R_E + z)((dx/dt)^2)cos(φ) - ((dz/dt)cos(φ) - (dy/dt)sin(φ))(dx/dt))/(((R_E + z)^2)(cos(φ)^2))
+1.80
+Relative acceleration of particle to nonrotating Earth
+a_rel = ((dx/dt)^2 + ((dx/dt)((dz/dt) - (dy/dt)tan(φ)))/(R_E + z))<i> + ((dy/dt)^2 + ((dy/dt)(dz/dt) + ([(dx/dt)]^2)tan(φ))/(R_E + z))<j> + ((dz/dt)^2 - (([(dx/dt)]^2) + ([(dy/dt)]^2))/(R_E + z))<k> --> See 1.80.1
+1.80.1
+Relative acceleration of particle to nonrotating FLAT Earth
+a_rel_neglecting_earth's_curvature = ((dx/dt)^2)<i> + ((dy/dt)^2)<j> + ((dz/dt)^2)<k> --> Earth's curvature is neglected by letting (R_E + z) be infinitely large --> See 1.80
+1.81
+Absolute velocity of particle above surface of Earth 1
+v = v_C + w X r_rel + v_rel --> Note that this is 1.66 and v_C = 0 since Earth is rotating --> See 1.82
+1.82
+Angular velocity of rotating Earth from latitude and local unit vectors
+w = |w|cos(φ)<j> + |w|sin(φ)<k>
+1.83
+Absolute velocity of particle above surface of Earth 2
+v = ((dx/dt) + |w|(R_E + z)cos(φ))<i> + (dy/dt)<j> + (dz/dt)<k>
+1.84
+Absolute acceleration of particle above surface of Earth
+a = (a_rel_i + 2|w|((dz/dt)cos(φ)-(dy/dt)sin(φ)))<i> + (a_rel_j + |w|sin(φ)(|w|(R_E + z)cos(φ) + 2(dx/dt)))<j> + (a_rel_z - |w|cos(φ)(|w|(R_E + z)cos(φ) + 2(dx/dt))) --> a_rel_i, a_rel_j and a_rel_k are components of a_rel along ijk directions --> See 1.80
+1.85
+Straight and level, unaccelerated flight
+dz/dt = (dz/dt)^2 = (dx/dt)^2 = (dy/dt)^2 = 0 --> See 1.85.1, 1.85.2
+1.85.1
+Absolute velocity of particle in straight and level, unaccelerated flight
+v = ((dx/dt) + |w|(R_E + z)cos(φ))<i> + (dy/dt)<j>
+1.85.2
+Absolute acceleration of particle in straight and level, unaccelerated flight
+a = -((dx/dt)(dy/dt)tan(φ)/(R_E + z) + 2|w|(dy/dt)sin(φ))<i> + (([(dx/dt)]^2)tan(φ)/(R_E + z) + |w|sin(φ)(|w|(R_E + z)cos(φ) + 2(dx/dt)))<j> - ((([(dx/dt)]^2) + ([(dy/dt)]^2))/(R_E + z)) + |w|cos(φ)(|w|(R_E + z)cos(φ) + 2(dx/dt)))<k>
+1.86
+Flight due north (local y-direction) at constant speed and altitude
+(dz/dt) = (dz/dt)^2 = (dx/dt) = (dx/dt)^2 = (dy/dt)^2 = 0 --> See 1.86.1, 1.86.2
+1.86.1
+Absolute velocity of particle in flight due north (local y-direction) at constant speed and altitude
+v = |w|(R_E + z)cos(φ)<i> + (dy/dt)<j>
+1.86.2
+Absolute acceleration of particle in flight due north (local y-direction) at constant speed and altitude
+a = -2w(dy/dt)sin(φ)<i> + (|w|^2)(R_E + z)sin(φ)cos(φ)<j> - (([(dy/dt)]^2)/(R_E + z) + (|w|^2)(R_E + z)(cos(φ))^2)<k>
+1.87
+Flight due east (local x-direction) at constant speed and altitude
+(dz/dt) = (dz/dt)^2 = (dx/dt)^2 = (dy/dt) = (dy/dt)^2 = 0 --> See 1.87.1, 1.87.2
+1.87.1
+Absolute velocity of particle in flight due east (local x-direction) at constant speed and altitude
+v = ((dx/dt) + |w|(R_E + z)cos(φ))<i>
+1.87.2
+Absolute acceleration of particle in flight due east (local x-direction) at constant speed and altitude
+a = (([(dx/dt)]^2)tan(φ)/(R_E + z) + |w|sin(φ)(|w|(R_E + z)cos(φ) + 2(dx/dt)))<j> - (([(dx/dt)]^2)/(R_E + z) + |w|cos(φ)(|w|(R_E + z)cos(φ) + 2(dx/dt)))<k>
+1.88
+Flight straight up (local z-direction) at costant speed
+(dx/dt) = (dx/dt)^2 = (dy/dt) = (dy/dt)^2 = 0 --> See 1.88.1, 1.88.2
+1.88.1
+Absolute velocity of particle in flight straight up (local z-direction) at constant speed
+v = |w|(R_E + z)cos(φ)<i> + (dz/dt)<k>
+1.88.2
+Absolute acceleration of particle in flight straight up (local z-direction) at constant speed
+a = 2|w|(dz/dt)cos(φ)<i> + (|w|^2)(R_E + z)sin(φ)cos(φ)<j> + ((dz/dt)^2 - (|w|^2)(R_E + z)(cos(φ)^2))<k>
+1.89
+Stationary
+(dx/dt) = (dx/dt)^2 = (dy/dt) = (dy/dt)^2 = (dz/dt) = (dz/dt)^2 = 0 --> See 1.89.1, 1.89.2
+1.89.1
+Absolute velocity of stationary particle above surface of Earth
+v = |w|(R_E + z)cos(φ)<i>
+1.89.2
+Absolute acceleration of stationary particle above surface of Earth
+a = (|w|^2)(R_E + z)sin(φ)cos(φ)<j> - (|w|^2)(R_E + z)(cos(φ)^2)<k>
+1.90
+Newton's second law (differential form)
+(dr/dt)^2 = F/m --> See 1.92
+1.91
+Integrating Newton's second law (constant force and mass)
+r = (F/2m)(t^2) + (C_1)(t) + (C_2) --> C_1, C_2 are vector constants of integration
+1.92
+Components of Newton's second law
+(dx/dt)^2 = F_x(t, r, dr/dt)/m --> Similar for (dy/dt)^2 and (dz/dt)^2
+1.93
+Auxillary values to reduce components of Newton's second law to first order differential equations
+y_1 = x, y_2 = y, y_3 = z, y_4 = dx/dt, y_5 = dy/dt, y_6 = dz/dt --> See 1.94
+1.94
+Coupled first order differential equations for numerical integration of Newton's second law
+d(y_1)/dt = y_4, d(y_2)/dt = y_5, d(y_3)/dt = y_6, d(y_4)/dt = F_x(t, y_1, y_2, y_3, y_4, y_5, y_6)/m --> d(y_5)/dt and d(y_6)/dt similar to d(y_4)/dt
+1.95
+Vector notation of 1.94 (Coupled first order differential equations for numerical integration of Newton's second law)
+dy/dt = f(t, y) --> See 1.96
+1.96
+Vectors in 1.95 (Coupled first order differential equations for numerical integration of Newton's second law)
+y = Matrix((y_1, y_2, y_3, y_4, y_5, y_6)), dy/dt = Matrix((d(y_1)/dt, d(y_2)/dt, d(y_3)/dt, d(y_4)/dt, d(y_5)/dt, d(y_6)/dt)), f = Matrix((y_2, y_4, y_6, F_x(t, y)/m, F_y(t, y)/m, F_z(t, y)/m))
+1.97
+Taylor series to approximate f(t+h) when f(t) and higher derivatives are known
+f(t+h) = f(t) + (c_1)h + (c_2)(h^2) + (c_3)(h^3) + ... + (c_n)(h^n) + O(h^(n+1)) --> O(h^(n+1)) is the error function --> See 1.98
+1.98
+Coefficients of Taylor series
+c_m = (1/m!)(d(f(t))/d(t^m))
