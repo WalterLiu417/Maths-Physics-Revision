@@ -2,3 +2,7 @@ __pycache__
 .vscode/
 **.vscode/
 **/.vscode/
+venv
+**venv/
+venv/
+**/venv/
