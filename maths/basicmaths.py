@@ -268,6 +268,7 @@ def save_no_soln_trigs_question(filepath):
     if terms[0][2] == "+":
         expr = expr[1:]
     q += expr + "$"
+    q += "\nFrom 0 <= x <= 2π."
     save_text(q, filepath)
     
     return len(rts), q
