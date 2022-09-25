@@ -2,22 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <body>
-        <ul>
-            {% for m in msg %}
-             <li>
-               {{m}}
-             </li>
-            {% endfor %}
-        </ul>
-        <img src="static/assets/foo.png" width="440" height="175">
-        <br>Press enter to submit:<br>
-        <form method="post" action="question">
-            <input type="text" value="Submit answer" id="ans" name="ans">
-        </form>
-        <form action="/">
-            <input type="submit" value="Return to home page" />
-        </form>
-        <p>Send any questions or bug reports to walterliu417@gmail.com</p>
-    </body>
+    <meta charset="UTF-8">
+    <title>Maths and Physics Revision</title>
+</head>
+<body>
+    <ul>
+        {% for m in msg %}
+         <li>
+           {{m}}
+         </li>
+        {% endfor %}
+    </ul>
+    <img src="static/assets/foo.png" width="624" height="70">
+    <br>Press enter to submit:<br>
+    <form method="post" action="question">
+        <input type="text" value="Submit answer" id="ans" name="ans">
+    </form>
+    <form action="/">
+        <input type="submit" value="Return to home page" />
+    </form>
+    <p>Send any questions or bug reports to walterliu417@gmail.com</p>
+</body>
 </html>
