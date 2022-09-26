@@ -3,6 +3,7 @@ from maths.questions import QUESTIONS
 from maths.helperfuncs import *
 from fractions import Fraction
 import random
+from PIL import Image
 
 app = Flask(__name__)
 
@@ -80,12 +81,12 @@ def question():
 
     quest = random.choice(QUESTIONS)
     ans, q = quest("static/assets/foo.png")
-    le, st = longest_line(q)
-    vertlen = len(q.split("\n"))
+    img = Image.open("static/assets/foo.png")
+    height, width, _ = np.shape(img)
     with open("test2.html", "r") as file:
         data = file.read()
         start = data.find("<img")
-        data = data[:start+40] + str(le*8) + data[start+40:start+50] + str(vertlen*35) + data[start+50:]
+        data = data[:start+40] + str(width/3) + data[start+40:start+50] + str(height/3) + data[start+50:]
     with open("templates/question.html", "w") as file:
         file.write(str(data))
     print(ans)
